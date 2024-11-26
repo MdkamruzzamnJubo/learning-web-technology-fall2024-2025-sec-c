@@ -15,9 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!preg_match("/^[a-zA-Z .-]+$/", $name)) {
         $errors[] = "Name can contain only letters, periods, or dashes.";
     }
-
     if (empty($errors)) {
-        echo "Name is valid!";
+        echo "<h2>Welcome, ".($name) . "!</h2>";
     } else {
         foreach ($errors as $error) {
             echo "<p>$error</p>";
@@ -27,10 +26,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <html>
 <head>
-    <title>Home</title>
+    <title>NAME</title>
 </head>
-<form method="post">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name">
-  <button type="submit">Submit</button>
+<form method="POST">
+    <fieldset>
+        <legend>Login</legend>
+            <table>
+                <tr>
+                    <td>
+                        Name : 
+                    </td>
+                    <td>
+                        <input type="text" placeholder="" name="name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" placeholder="submit" value="Login"/>
+                        <input type="reset" placeholder="reset" name=""/> 
+                    </td>
+                </tr>
+            </table>
+    </fieldset>
 </form>
